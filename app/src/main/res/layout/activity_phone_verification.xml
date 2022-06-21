@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#F6F6F6"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
+    tools:context=".PhoneVerificationActivity">
+
+    <ImageView
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"
+        android:src="@drawable/sendotp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="OTP Verification"
+        android:textStyle="bold"
+        android:textSize="@dimen/_18sdp"
+        android:textColor="#036007"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We will send an "
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="normal"
+            android:textColor="#656262"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="One Time Password"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold"
+            android:textColor="#0B0B0B"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="on this mobile number.."
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="normal"
+        android:textColor="#656262"/>
+
+    <androidx.cardview.widget.CardView
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/_15sdp"
+            android:background="@color/white"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_gravity="center">
+
+            <EditText
+                android:id="@+id/editNumber"
+                android:hint="Type your Phone Number"
+                android:padding="@dimen/_10sdp"
+                android:ems="1"
+                android:inputType="phone"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold|normal"
+                android:textColor="#1C1C1C"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:background="@drawable/bg_shape"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/continueBtn"
+                android:text="Continue"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textStyle="bold|normal"
+                android:textSize="@dimen/_14sdp"
+                android:textAllCaps="false"
+                android:backgroundTint="#32BD38"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

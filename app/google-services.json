@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "253404561001",
+    "project_id": "kotin-group-chat-app",
+    "storage_bucket": "kotin-group-chat-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253404561001:android:050c925e8682ce78fbecf8",
+        "android_client_info": {
+          "package_name": "com.mohsin.kotlinchatapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253404561001-suqch92eqse1m1ooqrev1a5mtligm5ro.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mohsin.kotlinchatapplication",
+            "certificate_hash": "ac4d2d112c970c48433f911c9afd12847aecca78"
+          }
+        },
+        {
+          "client_id": "253404561001-en27aktqnfi9qm6isb8rjg582ts5tfg8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgN1BhGQUhAPsYxa0D-L9VfuhaRZdcN-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253404561001-en27aktqnfi9qm6isb8rjg582ts5tfg8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
