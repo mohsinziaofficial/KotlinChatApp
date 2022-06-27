@@ -4,6 +4,8 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -48,17 +50,40 @@ class SetupProfileActivity : AppCompatActivity() {
                 if (name.isEmpty()) {
                     editName.setError("Please type your name")
                 }
-                dialog!!.show()
-                if (selectedImg != null) {
-                    val reference = storage!!.reference.child("Profile").child(auth!!.uid!!)
-                    reference.putFile(selectedImg!!).addOnCompleteListener{ task ->
-                        if (task.isSuccessful) {
-                            reference.downloadUrl.addOnCompleteListener { uri->
+                else {
+                    if (selectedImg != null) {
+                        dialog!!.show()
+                        val reference = storage!!.reference.child("Profile").child(auth!!.uid!!)
+                        reference.putFile(selectedImg!!).addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                reference.downloadUrl.addOnCompleteListener { uri ->
+                                    val uid = auth!!.uid
+                                    val name: String = binding.editName.text.toString()
+                                    val phone = auth!!.currentUser!!.phoneNumber
+                                    val imageUrl = uri.result.toString()
+                                    val user = User(uid, name, phone, imageUrl)
+
+                                    Log.d("selectedImg", "" + uri.result)
+
+                                    database!!.reference
+                                        .child("users")
+                                        .child(uid!!)
+                                        .setValue(user)
+                                        .addOnCompleteListener {
+                                            dialog!!.dismiss()
+                                            val intent = Intent(
+                                                this@SetupProfileActivity,
+                                                MainActivity::class.java
+                                            )
+                                            startActivity(intent)
+                                            finish()
+                                        }
+                                }
+                            } else {
                                 val uid = auth!!.uid
-                                val name : String = binding.editName.text.toString()
+                                val name: String = binding.editName.text.toString()
                                 val phone = auth!!.currentUser!!.phoneNumber
-                                val imageUrl = uri.toString()
-                                val user = User(uid, name, phone, imageUrl)
+                                val user = User(uid, name, phone, "No Image")
 
                                 database!!.reference
                                     .child("users")
@@ -66,29 +91,22 @@ class SetupProfileActivity : AppCompatActivity() {
                                     .setValue(user)
                                     .addOnCompleteListener {
                                         dialog!!.dismiss()
-                                        val intent = Intent(this@SetupProfileActivity, MainActivity::class.java)
+                                        val intent = Intent(
+                                            this@SetupProfileActivity,
+                                            MainActivity::class.java
+                                        )
                                         startActivity(intent)
                                         finish()
                                     }
                             }
                         }
-                        else {
-                            val uid = auth!!.uid
-                            val name : String = binding.editName.text.toString()
-                            val phone = auth!!.currentUser!!.phoneNumber
-                            val user = User(uid, name, phone, "No Image")
-
-                            database!!.reference
-                                .child("users")
-                                .child(uid!!)
-                                .setValue(user)
-                                .addOnCompleteListener {
-                                    dialog!!.dismiss()
-                                    val intent = Intent(this@SetupProfileActivity, MainActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
-                                }
-                        }
+                    }
+                    else {
+                        Toast.makeText(
+                            this@SetupProfileActivity,
+                            "Please select an image for profile.",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }
@@ -101,31 +119,38 @@ class SetupProfileActivity : AppCompatActivity() {
         if (data != null) {
             if (data.data != null) {
                 val uri = data.data
-                val storage = FirebaseStorage.getInstance()
-                val time = Date().time
-                val reference = storage.reference
-                    .child("Profile")
-                    .child(time.toString() + "")
+//                val storage = FirebaseStorage.getInstance()
+//                val time = Date().time
+//                val reference = storage.reference
+//                    .child("Profile")
+//                    .child(time.toString() + "")
+//
+//                reference.putFile(uri!!).addOnCompleteListener { task->
+//                    if (task.isSuccessful) {
+//                        reference.downloadUrl.addOnCompleteListener { uri->
+//                            val filePath = uri.toString()
+//                            val obj = HashMap<String, Any>()
+//                            obj["image"] = filePath
+//                            database!!.reference
+//                                .child("users")
+//                                .child(FirebaseAuth.getInstance().uid!!)
+//                                .updateChildren(obj).addOnCompleteListener {
+//
+//                                }
+//                        }
+//                    }
+//                }
 
-                reference.putFile(uri!!).addOnCompleteListener { task->
-                    if (task.isSuccessful) {
-                        reference.downloadUrl.addOnCompleteListener { uri->
-                            val filePath = uri.toString()
-                            val obj = HashMap<String, Any>()
-                            obj["image"] = filePath
-                            database!!.reference
-                                .child("users")
-                                .child(FirebaseAuth.getInstance().uid!!)
-                                .updateChildren(obj).addOnCompleteListener {
-
-                                }
-                        }
-                    }
-                }
-
-                binding.profileImg.setImageURI(data.data)
+                binding.profileImg.setImageURI(uri)
                 selectedImg = data.data
             }
+        }
+        else {
+            Toast.makeText(
+                this,
+                "No image selected!!",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }

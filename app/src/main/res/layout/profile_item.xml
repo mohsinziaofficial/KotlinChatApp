@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="@dimen/_8sdp"
+    app:cardElevation="@dimen/_10sdp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="@dimen/_13sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@drawable/avatar"/>
+        <LinearLayout
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/username"
+                android:text="Profile Name"
+                android:textStyle="bold|normal"
+                android:textAlignment="center"
+                android:textSize="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="#0F228C"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:background="#753B3B"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"/>
+            <TextView
+                android:id="@+id/description"
+                android:text="Work in Android Development"
+                android:textStyle="normal"
+                android:textAlignment="center"
+                android:textSize="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="#666667"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
