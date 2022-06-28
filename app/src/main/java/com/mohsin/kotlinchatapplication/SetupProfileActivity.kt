@@ -11,8 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.mohsin.kotlinchatapplication.databinding.ActivitySetupProfileBinding
-import java.util.*
-import kotlin.collections.HashMap
+import com.mohsin.kotlinchatapplication.model.User
 
 class SetupProfileActivity : AppCompatActivity() {
     private var _binding : ActivitySetupProfileBinding? = null

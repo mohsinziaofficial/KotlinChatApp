@@ -12,11 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinChatApplication">
         <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".OtpVerificationActivity"
             android:exported="false" />
         <activity
             android:name=".PhoneVerificationActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

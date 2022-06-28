@@ -1,4 +1,4 @@
-package com.mohsin.kotlinchatapplication
+package com.mohsin.kotlinchatapplication.model
 
 class User {
     var uid : String? = null

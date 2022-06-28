@@ -4,12 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android_Projects/KotlinChatApplication/app/src/main/res/drawable/bg_shape.xml" value="0.1" />
+        <entry key="..\:/Android_Projects/KotlinChatApplication/app/src/main/res/drawable/ic_back.xml" value="0.1" />
+        <entry key="..\:/Android_Projects/KotlinChatApplication/app/src/main/res/layout/activity_chat.xml" value="0.144" />
         <entry key="..\:/Android_Projects/KotlinChatApplication/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Android_Projects/KotlinChatApplication/app/src/main/res/layout/activity_otp.xml" value="0.246875" />
         <entry key="..\:/Android_Projects/KotlinChatApplication/app/src/main/res/layout/activity_phone_verification.xml" value="0.12569444444444444" />
         <entry key="..\:/Android_Projects/KotlinChatApplication/app/src/main/res/layout/activity_setup_profile.xml" value="0.1" />
         <entry key="..\:/Android_Projects/KotlinChatApplication/app/src/main/res/layout/activity_verification.xml" value="0.152" />
+        <entry key="..\:/Android_Projects/KotlinChatApplication/app/src/main/res/layout/delete_layout.xml" value="0.15" />
         <entry key="..\:/Android_Projects/KotlinChatApplication/app/src/main/res/layout/profile_item.xml" value="0.15789473684210525" />
+        <entry key="..\:/Android_Projects/KotlinChatApplication/app/src/main/res/layout/receive_msg.xml" value="0.15" />
+        <entry key="..\:/Android_Projects/KotlinChatApplication/app/src/main/res/layout/send_msg.xml" value="0.15" />
       </map>
     </option>
   </component>
